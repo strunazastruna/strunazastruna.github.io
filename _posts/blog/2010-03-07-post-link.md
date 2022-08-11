@@ -2,9 +2,6 @@
 title: "Post: Link"
 categories:
   - Blog
-tags:
-  - link
-  - Post Formats
 link: https://github.com
 ---
 
