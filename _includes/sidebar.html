@@ -1,29 +1,11 @@
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-{% for i in (1..categories_max) reversed %}
-  {% for category in site.categories %}
-    {% if category[1].size == i %}
-      <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
-        <h2 class="archive__subtitle">{{ category[0] }}</h2>
-        <div class="entries-{{ entries_layout }}">
-          {% for post in category.last %}
-            {% include archive-single.html type=entries_layout %}
-          {% endfor %}
-        </div>
-      </section>
-    {% endif %}
-  {% endfor %}
-{% endfor %}
-
-MOJ KODZIK
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-  {% for category in site.categories %}
-      <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
-        <h2 class="archive__subtitle">{{ category[0] }}</h2>
-        <div class="entries-{{ entries_layout }}">
-          {% for post in category.last %}
-            {% include archive-single.html type=entries_layout %}
-          {% endfor %}
-        </div>
-      </section>
-  {% endfor %}
+{% if page.author_profile or layout.author_profile or page.sidebar %}
+    <div class="search-content">
+    {% include_cached search/search_form.html %}
+    </div>
+  <div class="sidebar sticky">
+    {% assign categories = site.categories | sort %}
+    {% for category in categories %}
+        <a href="categories/{{ category[0] | slugify | downcase }}">{{ category[0] }}</a><br />
+    {% endfor %}
+  </div>
+{% endif %}
