@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+{% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+{% include page__hero_video.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+{% unless paginator %}
+{% include breadcrumbs.html %}
+{% endunless %}
+{% endif %}
+
+<div id="main" role="main" class="one-column">
+<div>
+  {% assign featured = site.tags.featured %}
+  {% assign entries_layout = page.entries_layout | default: 'list' %}
+  <h2 class=" archive__subtitle">⭐ Featured posts</h2>
+  {% for post in featured %}
+  <section id="featured" class="taxonomy__section">
+    <div class="entries-{{ entries_layout }}">
+      {% if post.id %}
+      {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+      {% else %}
+      {% assign title = post.title %}
+      {% endif %}
+
+      <div class="{{ include.type | default: 'list' }}__item">
+        <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+          <h2 class="archive__item-title" itemprop="headline">
+            <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+          </h2>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<h2 class="archive__subtitle">📅 Recent posts</h2>
+<section id="{{ year.name }}" class="taxonomy__section">
+  <div class="entries-{{ entries_layout }}">
+    {% for post in site.posts %}
+    {% if post.id %}
+    {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+    {% else %}
+    {% assign title = post.title %}
+    {% endif %}
+
+    <div class="{{ include.type | default: 'list' }}__item">
+      <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+        <h2 class="archive__item-title" itemprop="headline">
+          <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+        </h2>
+      </article>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+</div>

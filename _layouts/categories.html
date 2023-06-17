@@ -1,0 +1,47 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+{% assign categories = site.categories | sort %}
+
+<ul class="taxonomy__index">
+    {% for category in categories %}
+      {% if category[0] != "Popularne" %}
+        <li>
+          <a href="#{{ category[0] | slugify | downcase }}">
+            <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ category.last | size }}</span>
+          </a>
+        </li>
+      {% endif %}
+  {% endfor %}
+</ul>
+
+
+{% for category in categories %}
+  {% if category[0] == "Popularne" %}
+  <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section category-popular">
+    <h2 class="archive__subtitle">{{ category[0] }}</h2>
+    <ul class="entries-list">
+      {% for post in category.last limit:20 %}
+      <li><a href="{{ post.url | relative_url }}" rel="permalink">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+{% endfor %}
+
+  {% for category in categories %}
+    {% if category[0] != "Popularne" %}
+      <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
+        <h2 class="archive__subtitle">{{ category[0] }}</h2>
+        <ul class="entries-list">
+          {% for post in category.last %}
+          <li><a href="{{ post.url | relative_url }}" rel="permalink">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+{% endfor %}
+

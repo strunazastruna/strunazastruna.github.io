@@ -1,0 +1,7 @@
+main:
+  - title: "Śpiewnik"
+    url: /spiewnik/
+  - title: "Artykuły"
+    url: /artykuly/
+  - title: "Kontakt"
+    url: /kontakt/

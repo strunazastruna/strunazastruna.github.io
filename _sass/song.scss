@@ -1,0 +1,43 @@
+.song {
+    font-size: $type-size-8;
+    display: grid;
+    gap: 50px;
+    padding-top: 0px;
+    padding-left: 0px;
+    grid-template-columns: repeat( auto-fill, minmax(300px, 1fr) );
+}
+
+.songpage {
+    @include breakpoint($large) {
+      padding-right: $right-sidebar-width-very-narrow;
+    }
+}
+
+.column {
+    background-color: #edf4ff;
+}
+
+.line {
+    margin-top: 2em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.verse:not(:last-child) {
+    padding-bottom: 2em;
+}
+
+.chord { 
+    position: absolute;
+}
+
+.chord .inner { 
+   position: relative;
+   top: -1.6em;
+   left: -4px;
+//    font-size: $type-size-7;
+   background-color: white;
+   border-radius: 4px;
+   margin-right: 4px;
+   padding: 4px;
+}

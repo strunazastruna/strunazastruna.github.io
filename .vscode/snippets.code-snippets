@@ -1,0 +1,26 @@
+{
+	"Chord": {
+		"scope": "html",
+		"prefix": "c",
+		"body": [
+      "<span class=\"chord\"><span class=\"inner\">$1</span></span>$2"
+		],
+		"description": "Chord markup"
+	},
+	"Verse": {
+		"scope": "html",
+		"prefix": "v",
+		"body": [
+      "<div class=\"verse\">\n$1\n</div>"
+		],
+		"description": "Chord markup"
+	},
+	"Line": {
+		"scope": "html",
+		"prefix": "l",
+		"body": [
+      		"<div class=\"line\">\n$1\n</div>"
+		],
+		"description": "Chord markup"
+	}
+}

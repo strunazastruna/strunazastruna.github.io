@@ -1,0 +1,15 @@
+{% if page.author_profile or layout.author_profile or page.sidebar %}
+  <div class="sidebar sticky artists-sidebar">
+    <h4>Popularne</h3>
+    {% for post in site.categories.Popularne limit:10 %}
+      <a href="{{ post.url | relative_url }}" rel="permalink">{{ post.title }}</a>
+    {% endfor %}
+    <h4>Artyści</h3>
+    {% assign categories = site.categories | sort %}
+    {% for category in categories | sort %}
+        {% if category[0] != "Popularne" %}
+        <a href="/spiewnik/#{{ category[0] | slugify | downcase }}">{{ category[0] }}</a>
+        {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
