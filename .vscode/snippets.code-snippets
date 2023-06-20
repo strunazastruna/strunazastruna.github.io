@@ -22,5 +22,21 @@
       		"<div class=\"line\">\n$1\n</div>"
 		],
 		"description": "Chord markup"
+	},
+	"Song": {
+		"scope": "html",
+		"prefix": "s",
+		"body": [
+      		"<ul class=\"song\">\n$1\n</ul>"
+		],
+		"description": "Song"
+	},
+	"Column": {
+		"scope": "html",
+		"prefix": "col",
+		"body": [
+      		"<div class=\"column\">\n$1\n</div>"
+		],
+		"description": "Column"
 	}
 }
