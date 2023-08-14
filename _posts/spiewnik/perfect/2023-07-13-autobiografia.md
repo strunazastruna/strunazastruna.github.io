@@ -8,7 +8,7 @@ categories:
 - Popularne
 ---
 
-<div class="song">
+<ul class="song">
     <div class="column">
         <div class="verse">
             <div class="line">Miałem <span class="chord"><span class="inner">Em</span></span>dziesieć lat</div>
@@ -114,7 +114,7 @@ categories:
             <div class="line"><span class="chord"><span class="inner">C</span></span>Do czterech ścian</div>
         </div>
     </div>
-</div>
+</ul>
 
 <!--more-->
 

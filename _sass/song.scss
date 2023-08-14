@@ -1,11 +1,11 @@
 .song {
     font-size: $type-size-8;
     display: grid;
-    gap: 50px;
+    gap: 30px;
     padding-top: 0px;
     padding-left: 0px;
     letter-spacing: .05rem;
-    grid-template-columns: repeat( auto-fill, minmax(300px, 1fr) );
+    grid-template-columns: repeat( auto-fill, minmax(340px, 1fr) );
 }
 
 .songpage {
